@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title></title>
+</head>
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/viewportchangedetectionshim.js"></script>
+
+    <script>
+        function HeightChanged() {
+            console.log("heightChanged");
+        }
+
+        function WidthChanged() {
+            console.log("WidthChanged");
+        }
+
+        function OrientationChanged() {
+            console.log("OrientationChanged");
+        }
+
+        function ScrollPositionChanged() {
+            console.log("ScrollPositionChanged");
+        }
+
+        $(function () {
+            CheckViewport(250, HeightChanged, WidthChanged, null, OrientationChanged, ScrollPositionChanged, null);
+        });
+    </script>
+</body>
+</html>
