@@ -11,14 +11,19 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/viewportchangedetectionshim.js"></script>
+    <!--<script src="https://jsvscs.azurewebsites.net/js/viewportchangedetectionshim.js"></script>-->
 
     <script>
         function HeightChanged() {
-            console.log("heightChanged");
+            console.log("HeightChanged");
         }
 
         function WidthChanged() {
             console.log("WidthChanged");
+        }
+
+        function HeightOrWidthChanged() {
+            console.log("HeightOrWidthChanged");
         }
 
         function OrientationChanged() {
@@ -29,8 +34,19 @@
             console.log("ScrollPositionChanged");
         }
 
+        function ViewportChanged() {
+            console.log("ViewportChanged");
+        }
+
         $(function () {
-            CheckViewport(250, HeightChanged, WidthChanged, null, OrientationChanged, ScrollPositionChanged, null);
+
+            $(document).on("HeightChanged", HeightChanged);
+            $(document).on("WidthChanged", WidthChanged);
+            $(document).on("HeightOrWidthChanged", HeightOrWidthChanged);
+            $(document).on("OrientationChanged", OrientationChanged);
+            $(document).on("ScrollPositionChanged", ScrollPositionChanged);
+            $(document).on("ViewportChanged", ViewportChanged);
+
         });
     </script>
 </body>
